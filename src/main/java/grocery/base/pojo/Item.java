@@ -8,15 +8,14 @@ public class Item {
     int availQuantity;
     int price;
 
-    public Item(){
-    };
+    public Item() {};
 
-    public Item(int itemID, String itemName){
+    public Item(int itemID, String itemName) {
         this.itemID = itemID;
         this.itemName = itemName;
     };
 
-    public Item(int itemID, String itemName, int categoryID, int brandID, int availQuantity, int price){
+    public Item(int itemID, String itemName, int categoryID, int brandID, int availQuantity, int price) {
         this.itemID = itemID;
         this.itemName = itemName;
         this.categoryID = categoryID;
@@ -25,51 +24,51 @@ public class Item {
         this.price = price;
     }
 
-    public int getItemID(){
+    public int getItemID() {
         return itemID;
     }
 
-    public void setItemID(int itemID){
+    public void setItemID(int itemID) {
         this.itemID = itemID;
     }
 
-    public String getItemName(){
+    public String getItemName() {
         return itemName;
     }
 
-    public void setItemName(String itemName){
+    public void setItemName(String itemName) {
         this.itemName = itemName;
     }
 
-    public int getCategoryID(){
+    public int getCategoryID() {
         return categoryID;
     }
 
-    public void setCategoryID(int categoryID){
+    public void setCategoryID(int categoryID) {
         this.categoryID = categoryID;
     }
 
-    public int getBrandID(){
+    public int getBrandID() {
         return brandID;
     }
 
-    public void setBrandID(int brandID){
+    public void setBrandID(int brandID) {
         this.brandID = brandID;
     }
 
-    public int getAvailQuantity(){
+    public int getAvailQuantity() {
         return availQuantity;
     }
 
-    public void setAvailQuantity(int availQuantity){
+    public void setAvailQuantity(int availQuantity) {
         this.availQuantity = availQuantity;
     }
 
-    public int getPrice(){
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(int price){
+    public void setPrice(int price) {
         this.price = price;
     }
 }

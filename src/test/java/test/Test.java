@@ -13,30 +13,28 @@ public class Test {
     public static void main(String[] args) {
         DbConnect connect = new DbConnect();
         Connection con = null;
-        try{
+        try {
             con = connect.getConnection();
-//            Item soap = new Item(3, "Dove Soap", 1, 2, 10, 80);
+            //            Item soap = new Item(3, "Dove Soap", 1, 2, 10, 80);
             ItemDAO itemDAO = new ItemDAO(con);
-//            itemDAO.insert(soap);
+            //            itemDAO.insert(soap);
             BrandDAO brandDAO = new BrandDAO(con);
-//            ArrayList<Item> items = itemDAO.listItems();
-            ArrayList<Item> items = brandDAO.searchByBrandId(6);
-            for(Item item : items){
+            //            ArrayList<Item> items = itemDAO.listItems();
+            ArrayList < Item > items = brandDAO.searchByBrandId(6);
+            for (Item item: items) {
                 System.out.println("Item Id: " + item.getItemID() + " Item Name: " + item.getItemName() + " Category: " + item.getCategoryID() + " Brand: " + item.getBrandID() + " Quantity: " + item.getAvailQuantity() + " Price: " + item.getPrice());
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("SQL Exception:");
             e.printStackTrace();
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             try {
                 if (con != null) {
                     con.close();
                 }
-            }
-            catch (SQLException e) {
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
         }

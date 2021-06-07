@@ -5,8 +5,7 @@ public class Brand {
     String brandName;
     int parentId;
 
-    public Brand() {
-    }
+    public Brand() {}
 
     public Brand(int brandId, String brandName, int parentId) {
         this.brandId = brandId;

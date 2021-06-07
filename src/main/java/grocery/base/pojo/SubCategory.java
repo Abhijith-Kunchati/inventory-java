@@ -6,8 +6,7 @@ public class SubCategory {
     int categoryId;
     String unit;
 
-    public SubCategory() {
-    }
+    public SubCategory() {}
 
     public SubCategory(int subCatId, String subCatName, int categoryId, String unit) {
         this.subCatId = subCatId;
