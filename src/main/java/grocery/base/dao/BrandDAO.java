@@ -7,17 +7,16 @@ import grocery.base.pojo.Brand;
 import grocery.base.pojo.Item;
 
 public class BrandDAO {
-    private Connection con;
+    private final Connection con;
     public BrandDAO(Connection con){
         this.con = con;
     }
     public void insert(Brand brand){
         try {
-            String sql = "INSERT INTO brands VALUES(?, ?, ?)";
+            String sql = "INSERT INTO brands(brandName, parentId) VALUES(?, ?)";
             PreparedStatement stmt = con.prepareStatement(sql);
-            stmt.setInt(1,brand.getBrandId());
-            stmt.setString(2,brand.getBrandName());
-            stmt.setInt(3,brand.getParentId());
+            stmt.setString(1,brand.getBrandName());
+            stmt.setInt(2,brand.getParentId());
             int s = stmt.executeUpdate();
             if (s == 1) {
                 System.out.println("Brand inserted");

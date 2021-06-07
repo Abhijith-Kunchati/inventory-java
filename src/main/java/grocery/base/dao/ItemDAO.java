@@ -6,20 +6,19 @@ import java.util.ArrayList;
 import grocery.base.pojo.Item;
 
 public class ItemDAO{
-    private Connection con;
+    private final Connection con;
     public ItemDAO(Connection con){
         this.con = con;
     }
     public void insert(Item item){
         try {
-            String sql = "INSERT INTO items VALUES(?,?,?,?,?,?)";
+            String sql = "INSERT INTO items(itemName , subCatId, brandId, quantity, price) VALUES(?,?,?,?,?)";
             PreparedStatement stmt = con.prepareStatement(sql);
-            stmt.setInt(1, item.getItemID());
-            stmt.setString(2, item.getItemName());
-            stmt.setInt(3, item.getCategoryID());
-            stmt.setInt(4, item.getBrandID());
-            stmt.setInt(5, item.getAvailQuantity());
-            stmt.setInt(6, item.getPrice());
+            stmt.setString(1, item.getItemName());
+            stmt.setInt(2, item.getCategoryID());
+            stmt.setInt(3, item.getBrandID());
+            stmt.setInt(4, item.getAvailQuantity());
+            stmt.setInt(5, item.getPrice());
             int s = stmt.executeUpdate();
             if (s == 1) {
                 System.out.println("Item " + item.getItemName() +" is inserted");

@@ -7,18 +7,17 @@ import grocery.base.pojo.SubCategory;
 import grocery.base.pojo.Item;
 
 public class SubCategoryDAO {
-    private Connection con;
+    private final Connection con;
     public SubCategoryDAO(Connection con){
         this.con = con;
     }
     public void insert(SubCategory subCat){
         try {
-            String sql = "INSERT INTO sub_categories VALUES(?, ?, ?, ?)";
+            String sql = "INSERT INTO sub_categories(subCatName, categoryId, unit) VALUES(?, ?, ?)";
             PreparedStatement stmt = con.prepareStatement(sql);
-            stmt.setInt(1,subCat.getSubCatId());
-            stmt.setString(2,subCat.getSubCatName());
-            stmt.setInt(3,subCat.getCategoryId());
-            stmt.setString(4, subCat.getUnit());
+            stmt.setString(1,subCat.getSubCatName());
+            stmt.setInt(2,subCat.getCategoryId());
+            stmt.setString(3, subCat.getUnit());
             int s = stmt.executeUpdate();
             if (s == 1) {
                 System.out.println("SubCategory inserted");
