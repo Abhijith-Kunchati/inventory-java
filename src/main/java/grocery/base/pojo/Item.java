@@ -8,12 +8,15 @@ public class Item {
     int availQuantity;
     int price;
 
-    public Item() {};
+    public Item() {}
 
-    public Item(int itemID, String itemName) {
-        this.itemID = itemID;
+    public Item(String itemName, int categoryID, int brandID, int availQuantity, int price) {
         this.itemName = itemName;
-    };
+        this.categoryID = categoryID;
+        this.brandID = brandID;
+        this.availQuantity = availQuantity;
+        this.price = price;
+    }
 
     public Item(int itemID, String itemName, int categoryID, int brandID, int availQuantity, int price) {
         this.itemID = itemID;
