@@ -63,6 +63,25 @@ public class BrandDAO {
         return results;
     }
 
+    public Brand getBrandOfId(int BrandId){
+        Brand brand = new Brand();
+        try {
+            String sql = "SELECT brandId, brandName, parentId FROM brands WHERE brandId = ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, BrandId);
+            ResultSet brands = stmt.executeQuery();
+            while(brands.next()){
+                brand.setBrandId(brands.getInt("brandId"));
+                brand.setBrandName(brands.getString("brandName"));
+                brand.setParentId(brands.getInt("parentId"));
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return brand;
+    }
+
     public ArrayList<Item> searchByBrandId(int BrandId){
         ArrayList<Item> results = new ArrayList<Item>();
         try {

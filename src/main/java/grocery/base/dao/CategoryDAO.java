@@ -59,6 +59,23 @@ public class CategoryDAO {
         }
         return results;
     }
+    public Category getCategoryOfId(int CategoryId){
+        Category category = new Category();
+        try {
+            String sql = "SELECT categoryId, categoryName FROM categories WHERE categoryId = ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, CategoryId);
+            ResultSet categories = stmt.executeQuery();
+            while(categories.next()){
+                category.setCategoryID(categories.getInt("categoryId"));
+                category.setCategoryName(categories.getString("categoryName"));
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return category;
+    }
     public ArrayList<Item> searchByCategoryId(int CategoryId){
         ArrayList<Item> results = new ArrayList<Item>();
         try {

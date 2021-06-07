@@ -58,6 +58,23 @@ public class ParentBrandDAO {
         }
         return results;
     }
+    public ParentBrand getParentOfId(int ParentId){
+        ParentBrand parentBrand = new ParentBrand();
+        try{
+            String sql = "SELECT parentId, parentName FROM parent_brands WHERE parentId = ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, ParentId);
+            ResultSet parentBrands = stmt.executeQuery();
+            while(parentBrands.next()){
+                parentBrand.setParentId(parentBrands.getInt("parentId"));
+                parentBrand.setParentName(parentBrands.getString("parentName"));
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return parentBrand;
+    }
     public ArrayList<Item> searchByParentId(int ParentId){
         ArrayList<Item> results = new ArrayList<Item>();
         try {

@@ -72,28 +72,26 @@ public class ItemDAO{
         return results;
     }
 
-    public ArrayList<Item> searchById(int itemID){
-        ArrayList<Item> results = new ArrayList<Item>();
+    public Item getItemOfId(int itemID){
+        Item item = new Item();
         try{
             String sql = "SELECT itemId, itemName , subCatId, brandId, quantity, price FROM items WHERE itemId = ?";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setInt(1, itemID);
             ResultSet items = stmt.executeQuery();
             while(items.next()){
-                Item item = new Item();
                 item.setItemID(items.getInt("itemId"));
                 item.setItemName(items.getString("itemName"));
                 item.setCategoryID(items.getInt("subCatId"));
                 item.setBrandID(items.getInt("brandId"));
                 item.setAvailQuantity(items.getInt("quantity"));
                 item.setPrice(items.getInt("price"));
-                results.add(item);
             }
         }
         catch (Exception e){
             e.printStackTrace();
         }
-        return results;
+        return item;
     }
 
     public ArrayList<Item> searchByItemName(String itemName){

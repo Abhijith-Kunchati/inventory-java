@@ -65,6 +65,25 @@ public class SubCategoryDAO {
         }
         return results;
     }
+    public SubCategory getSubCatOfId(int SubCatId){
+        SubCategory subCategory = new SubCategory();
+        try {
+            String sql = "SELECT subCatId, subCatName, categoryId, unit FROM sub_categories WHERE subCatId = ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, SubCatId);
+            ResultSet subCategories = stmt.executeQuery();
+            while (subCategories.next()){
+                subCategory.setSubCatId(subCategories.getInt("subCatId"));
+                subCategory.setSubCatName(subCategories.getString("subCatName"));
+                subCategory.setCategoryId(subCategories.getInt("categoryId"));
+                subCategory.setUnit(subCategories.getString("unit"));
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return subCategory;
+    }
     public ArrayList<Item> searchBySubCatId(int SubCatId){
         ArrayList<Item> results = new ArrayList<Item>();
         try {
