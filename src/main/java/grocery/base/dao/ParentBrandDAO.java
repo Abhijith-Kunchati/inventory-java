@@ -44,8 +44,8 @@ public class ParentBrandDAO {
             e.printStackTrace();
         }
     }
-    public ArrayList < ParentBrand > listParentBrands() {
-        ArrayList < ParentBrand > results = new ArrayList < ParentBrand > ();
+    public ArrayList <ParentBrand> listParentBrands() {
+        ArrayList <ParentBrand> results = new ArrayList <ParentBrand> ();
         try {
             String sql = "SELECT parentId, parentName FROM parent_brands";
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -83,8 +83,8 @@ public class ParentBrandDAO {
         }
         return parentBrand;
     }
-    public ArrayList < Item > searchByParentId(int ParentId) {
-        ArrayList < Item > results = new ArrayList < Item > ();
+    public ArrayList <Item> searchByParentId(int ParentId) {
+        ArrayList <Item> results = new ArrayList <Item> ();
         try {
             String sql = "SELECT items.itemId, items.itemName , items.subCatId, items.brandId, items.quantity, items.price FROM items, brands, parent_brands WHERE items.brandId = brands.brandId AND brands.parentId = parent_brands.parentId AND parent_brands.parentId = ?";
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -108,8 +108,8 @@ public class ParentBrandDAO {
         }
         return results;
     }
-    public ArrayList < Item > searchByParentName(String ParentName) {
-        ArrayList < Item > results = new ArrayList < Item > ();
+    public ArrayList <Item> searchByParentName(String ParentName) {
+        ArrayList <Item> results = new ArrayList <Item> ();
         try {
             String sql = "SELECT items.itemId, items.itemName , items.subCatId, items.brandId, items.quantity, items.price FROM items, brands, parent_brands WHERE items.brandId = brands.brandId AND brands.parentId = parent_brands.parentId AND parent_brands.parentName = ?";
             PreparedStatement stmt = con.prepareStatement(sql);

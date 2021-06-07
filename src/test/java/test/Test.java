@@ -20,7 +20,7 @@ public class Test {
             //            itemDAO.insert(soap);
             BrandDAO brandDAO = new BrandDAO(con);
             //            ArrayList<Item> items = itemDAO.listItems();
-            ArrayList < Item > items = brandDAO.searchByBrandId(6);
+            ArrayList <Item> items = brandDAO.searchByBrandId(6);
             for (Item item: items) {
                 System.out.println("Item Id: " + item.getItemID() + " Item Name: " + item.getItemName() + " Category: " + item.getCategoryID() + " Brand: " + item.getBrandID() + " Quantity: " + item.getAvailQuantity() + " Price: " + item.getPrice());
             }

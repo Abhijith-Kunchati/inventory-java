@@ -47,8 +47,8 @@ public class BrandDAO {
         }
     }
 
-    public ArrayList < Brand > listBrands() {
-        ArrayList < Brand > results = new ArrayList < Brand > ();
+    public ArrayList <Brand> listBrands() {
+        ArrayList <Brand> results = new ArrayList <Brand> ();
         try {
             String sql = "SELECT brandId, brandName, parentId FROM brands";
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -90,8 +90,8 @@ public class BrandDAO {
         return brand;
     }
 
-    public ArrayList < Item > searchByBrandId(int BrandId) {
-        ArrayList < Item > results = new ArrayList < Item > ();
+    public ArrayList <Item> searchByBrandId(int BrandId) {
+        ArrayList <Item> results = new ArrayList <Item> ();
         try {
             String sql = "SELECT items.itemId, items.itemName , items.subCatId, items.brandId, items.quantity, items.price FROM items, brands WHERE items.brandId = brands.brandId AND brands.brandId = ?";
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -116,8 +116,8 @@ public class BrandDAO {
         return results;
     }
 
-    public ArrayList < Item > searchByBrandName(String BrandName) {
-        ArrayList < Item > results = new ArrayList < Item > ();
+    public ArrayList <Item> searchByBrandName(String BrandName) {
+        ArrayList <Item> results = new ArrayList <Item> ();
         try {
             String sql = "SELECT items.itemId, items.itemName , items.subCatId, items.brandId, items.quantity, items.price FROM items, brands WHERE items.brandId = brands.brandId AND brands.brandName = ?";
             PreparedStatement stmt = con.prepareStatement(sql);

@@ -49,8 +49,8 @@ public class SubCategoryDAO {
         }
     }
 
-    public ArrayList < SubCategory > listSubCategories() {
-        ArrayList < SubCategory > results = new ArrayList < SubCategory > ();
+    public ArrayList <SubCategory> listSubCategories() {
+        ArrayList <SubCategory> results = new ArrayList <SubCategory> ();
         try {
             String sql = "SELECT subCatId, subCatName, categoryId, unit FROM sub_categories";
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -92,8 +92,8 @@ public class SubCategoryDAO {
         }
         return subCategory;
     }
-    public ArrayList < Item > searchBySubCatId(int SubCatId) {
-        ArrayList < Item > results = new ArrayList < Item > ();
+    public ArrayList <Item> searchBySubCatId(int SubCatId) {
+        ArrayList <Item> results = new ArrayList <Item> ();
         try {
             String sql = "SELECT items.itemId, items.itemName , items.subCatId, items.brandId, items.quantity, items.price FROM items, sub_categories WHERE items.subCatId = sub_categories.subCatId AND sub_categories.subCatId = ?";
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -117,8 +117,8 @@ public class SubCategoryDAO {
         }
         return results;
     }
-    public ArrayList < Item > searchBySubCatName(String SubCatName) {
-        ArrayList < Item > results = new ArrayList < Item > ();
+    public ArrayList <Item> searchBySubCatName(String SubCatName) {
+        ArrayList <Item> results = new ArrayList <Item> ();
         try {
             String sql = "SELECT items.itemId, items.itemName , items.subCatId, items.brandId, items.quantity, items.price FROM items, sub_categories WHERE items.subCatId = sub_categories.subCatId AND sub_categories.subCatName = ?";
             PreparedStatement stmt = con.prepareStatement(sql);

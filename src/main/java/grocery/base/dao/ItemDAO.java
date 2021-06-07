@@ -53,8 +53,8 @@ public class ItemDAO {
         }
     }
 
-    public ArrayList < Item > listItems() {
-        ArrayList < Item > results = new ArrayList < Item > ();
+    public ArrayList <Item> listItems() {
+        ArrayList <Item> results = new ArrayList <Item> ();
         try {
             String sql = "SELECT itemId, itemName , subCatId, brandId, quantity, price FROM items";
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -102,8 +102,8 @@ public class ItemDAO {
         return item;
     }
 
-    public ArrayList < Item > searchByItemName(String itemName) {
-        ArrayList < Item > results = new ArrayList < Item > ();
+    public ArrayList <Item> searchByItemName(String itemName) {
+        ArrayList <Item> results = new ArrayList <Item> ();
         try {
             String sql = "SELECT itemId, itemName , subCatId, brandId, quantity, price FROM items WHERE itemName = ?";
             PreparedStatement stmt = con.prepareStatement(sql);
