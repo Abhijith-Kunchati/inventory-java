@@ -24,7 +24,10 @@ public class ItemDAO{
                 System.out.println("Item " + item.getItemName() +" is inserted");
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
     }
@@ -44,7 +47,10 @@ public class ItemDAO{
                 System.out.println("Item of Id:"+ item.getItemID() + " is updated");
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
     }
@@ -66,7 +72,10 @@ public class ItemDAO{
                 results.add(item);
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
         return results;
@@ -88,7 +97,10 @@ public class ItemDAO{
                 item.setPrice(items.getInt("price"));
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
         return item;
@@ -112,7 +124,10 @@ public class ItemDAO{
                 results.add(item);
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
         return results;
@@ -128,7 +143,10 @@ public class ItemDAO{
                 System.out.println("Item deleted");
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
     }

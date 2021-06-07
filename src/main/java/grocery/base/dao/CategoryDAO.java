@@ -22,7 +22,10 @@ public class CategoryDAO {
                 System.out.println("Category inserted");
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
     }
@@ -37,7 +40,10 @@ public class CategoryDAO {
                 System.out.println("Category updated");
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
     }
@@ -54,7 +60,10 @@ public class CategoryDAO {
                 results.add(category);
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
         return results;
@@ -71,7 +80,10 @@ public class CategoryDAO {
                 category.setCategoryName(categories.getString("categoryName"));
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
         return category;
@@ -94,7 +106,10 @@ public class CategoryDAO {
                 results.add(item);
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
         return results;
@@ -117,7 +132,10 @@ public class CategoryDAO {
                 results.add(item);
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
         return results;
@@ -132,7 +150,10 @@ public class CategoryDAO {
                 System.out.println("Category deleted");
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
     }

@@ -21,7 +21,10 @@ public class ParentBrandDAO {
                 System.out.println("Parent Brand inserted");
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
     }
@@ -36,7 +39,10 @@ public class ParentBrandDAO {
                 System.out.println("Brand updated");
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
     }
@@ -53,7 +59,10 @@ public class ParentBrandDAO {
                 results.add(parentBrand);
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
         return results;
@@ -70,7 +79,10 @@ public class ParentBrandDAO {
                 parentBrand.setParentName(parentBrands.getString("parentName"));
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
         return parentBrand;
@@ -93,7 +105,10 @@ public class ParentBrandDAO {
                 results.add(item);
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
         return results;
@@ -116,7 +131,10 @@ public class ParentBrandDAO {
                 results.add(item);
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
         return results;
@@ -131,7 +149,10 @@ public class ParentBrandDAO {
                 System.out.println("Parent brand deleted");
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
     }

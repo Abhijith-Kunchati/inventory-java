@@ -22,7 +22,10 @@ public class BrandDAO {
                 System.out.println("Brand inserted");
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
     }
@@ -38,7 +41,10 @@ public class BrandDAO {
                 System.out.println("Brand updated");
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
     }
@@ -57,7 +63,10 @@ public class BrandDAO {
                 results.add(brand);
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
         return results;
@@ -76,7 +85,10 @@ public class BrandDAO {
                 brand.setParentId(brands.getInt("parentId"));
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
         return brand;
@@ -100,7 +112,10 @@ public class BrandDAO {
                 results.add(item);
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
         return results;
@@ -124,7 +139,10 @@ public class BrandDAO {
                 results.add(item);
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
         return results;
@@ -140,7 +158,10 @@ public class BrandDAO {
                 System.out.println("Brand deleted");
             }
         }
-        catch (Exception e){
+        catch (SQLException e){
+            System.out.println("SQL Exception:");
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
     }
