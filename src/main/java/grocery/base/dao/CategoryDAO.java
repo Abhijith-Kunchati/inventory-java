@@ -15,7 +15,7 @@ public class CategoryDAO {
     public void insert(Category category) {
         try {
             String sql = "INSERT INTO categories(categoryName) VALUES(?)";
-            PreparedStatement stmt = con.prepareStatement(sql);
+            PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, category.getCategoryName());
             int s = stmt.executeUpdate();
             if (s == 1) {

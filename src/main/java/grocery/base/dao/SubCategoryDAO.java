@@ -14,7 +14,7 @@ public class SubCategoryDAO {
     public void insert(SubCategory subCat) {
         try {
             String sql = "INSERT INTO sub_categories(subCatName, categoryId, unit) VALUES(?, ?, ?)";
-            PreparedStatement stmt = con.prepareStatement(sql);
+            PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, subCat.getSubCatName());
             stmt.setInt(2, subCat.getCategoryId());
             stmt.setString(3, subCat.getUnit());

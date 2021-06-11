@@ -13,7 +13,7 @@ public class ItemDAO {
     public void insert(Item item) {
         try {
             String sql = "INSERT INTO items(itemName , subCatId, brandId, quantity, price) VALUES(?,?,?,?,?)";
-            PreparedStatement stmt = con.prepareStatement(sql);
+            PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, item.getItemName());
             stmt.setInt(2, item.getCategoryID());
             stmt.setInt(3, item.getBrandID());

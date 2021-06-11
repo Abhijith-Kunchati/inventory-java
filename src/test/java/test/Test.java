@@ -82,7 +82,7 @@ public class Test {
         System.out.println("1. Insert item \n2. Update item \n3. List items \n4. Delete item \n5. Exit");
         System.out.println("---------------------------------");
         System.out.print("Choose an Operation: ");
-        option = in .nextInt();
+        option = in.nextInt();
         return option;
     }
 
@@ -92,7 +92,7 @@ public class Test {
         System.out.println("1. Update item name \n2. Update category \n3. Update brand \n4. Update quantity \n5. Update price \n6. Finish");
         System.out.println("---------------------------------");
         System.out.print("Choose an Option: ");
-        option = in .nextInt();
+        option = in.nextInt();
         return option;
     }
 
@@ -107,25 +107,45 @@ public class Test {
         SubCategoryDAO subCategoryDAO = new SubCategoryDAO(con);
         BrandDAO brandDAO = new BrandDAO(con);
         System.out.print("Enter name of the item: ");
-        itemName = in .next();
+        itemName = in.next();
         ArrayList <SubCategory> subCategories = subCategoryDAO.listSubCategories();
         printSubCategories(subCategories);
         while (!validSubCat) {
             System.out.print("Choose a category: ");
-            subCatID = in .nextInt();
+            subCatID = in.nextInt();
             validSubCat = containsSubCat(subCategories, subCatID);
+            int c = 0;
+            if(!validSubCat){
+                System.out.println("Invalid choice");
+                System.out.println("1. Try again \n2. Abort");
+                System.out.print("Your choice: ");
+                c = in.nextInt();
+            }
+            if(c == 2){
+                return;
+            }
         }
         ArrayList <Brand> brands = brandDAO.listBrands();
         printBrands(brands);
         while (!validBrand) {
             System.out.print("Choose a brand: ");
-            brandID = in .nextInt();
+            brandID = in.nextInt();
             validBrand = containsBrand(brands, brandID);
+            int c = 0;
+            if(!validBrand){
+                System.out.println("Invalid choice");
+                System.out.println("1. Try again \n2. Abort");
+                System.out.print("Your choice: ");
+                c = in.nextInt();
+            }
+            if(c == 2){
+                return;
+            }
         }
         System.out.print("Enter quantity of items: ");
-        availQuantity = in .nextInt();
+        availQuantity = in.nextInt();
         System.out.print("Enter item's price: ");
-        price = in .nextInt();
+        price = in.nextInt();
         Item item = new Item(itemName, subCatID, brandID, availQuantity, price);
         ItemDAO itemDAO = new ItemDAO(con);
         itemDAO.insert(item);
@@ -146,7 +166,7 @@ public class Test {
         printItems(items);
         while (!validItemId) {
             System.out.print("Enter an item id: ");
-            itemID = in .nextInt();
+            itemID = in.nextInt();
             validItemId = containsItem(items, itemID);
         }
         Item item = itemDAO.getItemOfId(itemID);
@@ -158,7 +178,7 @@ public class Test {
             switch (option) {
                 case 1:
                     System.out.print("Enter new name: ");
-                    itemName = in .next();
+                    itemName = in.next();
                     item.setItemName(itemName);
                     break;
                 case 2:
@@ -166,8 +186,18 @@ public class Test {
                     printSubCategories(subCategories);
                     while (!validSubCat) {
                         System.out.print("Choose a new category: ");
-                        subCatID = in .nextInt();
+                        subCatID = in.nextInt();
                         validSubCat = containsSubCat(subCategories, subCatID);
+                        int c = 0;
+                        if(!validSubCat){
+                            System.out.println("Invalid choice");
+                            System.out.println("1. Try again \n2. Abort");
+                            System.out.print("Your choice: ");
+                            c = in.nextInt();
+                        }
+                        if(c == 2){
+                            return;
+                        }
                     }
                     item.setCategoryID(subCatID);
                     break;
@@ -176,19 +206,29 @@ public class Test {
                     printBrands(brands);
                     while (!validBrand) {
                         System.out.print("Choose a new brand: ");
-                        brandID = in .nextInt();
+                        brandID = in.nextInt();
                         validBrand = containsBrand(brands, brandID);
+                        int c = 0;
+                        if(!validBrand){
+                            System.out.println("Invalid choice");
+                            System.out.println("1. Try again \n2. Abort");
+                            System.out.print("Your choice: ");
+                            c = in.nextInt();
+                        }
+                        if(c == 2){
+                            return;
+                        }
                     }
                     item.setBrandID(brandID);
                     break;
                 case 4:
                     System.out.print("Enter the new available quantity: ");
-                    availQuantity = in .nextInt();
+                    availQuantity = in.nextInt();
                     item.setAvailQuantity(availQuantity);
                     break;
                 case 5:
                     System.out.print("Enter the new price: ");
-                    price = in .nextInt();
+                    price = in.nextInt();
                     item.setPrice(price);
                     break;
                 case 6:
@@ -225,8 +265,18 @@ public class Test {
         printItems(items);
         while (!validItemId) {
             System.out.print("Enter an item id: ");
-            itemID = in .nextInt();
+            itemID = in.nextInt();
             validItemId = containsItem(items, itemID);
+            int c = 0;
+            if(!validItemId){
+                System.out.println("Invalid choice");
+                System.out.println("1. Try again \n2. Abort");
+                System.out.print("Your choice: ");
+                c = in.nextInt();
+            }
+            if(c == 2){
+                return;
+            }
         }
         itemDAO.deleteById(itemID);
     }
@@ -234,7 +284,7 @@ public class Test {
     public static void main(String[] args) {
         DbConnect connect = new DbConnect();
         Connection con = null;
-        Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(System.in).useDelimiter("\\n");
         try {
             con = connect.getConnection();
             int option = 0;

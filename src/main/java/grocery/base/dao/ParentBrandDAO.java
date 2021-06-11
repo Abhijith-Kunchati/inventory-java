@@ -14,7 +14,7 @@ public class ParentBrandDAO {
     public void insert(ParentBrand parentBrand) {
         try {
             String sql = "INSERT INTO parent_brands(parentName) VALUES(?)";
-            PreparedStatement stmt = con.prepareStatement(sql);
+            PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, parentBrand.getParentName());
             int s = stmt.executeUpdate();
             if (s == 1) {

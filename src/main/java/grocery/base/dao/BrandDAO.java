@@ -14,7 +14,7 @@ public class BrandDAO {
     public void insert(Brand brand) {
         try {
             String sql = "INSERT INTO brands(brandName, parentId) VALUES(?, ?)";
-            PreparedStatement stmt = con.prepareStatement(sql);
+            PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, brand.getBrandName());
             stmt.setInt(2, brand.getParentId());
             int s = stmt.executeUpdate();
