@@ -8,6 +8,12 @@ public class SubCategory {
 
     public SubCategory() {}
 
+    public SubCategory(String subCatName, int categoryId, String unit) {
+        this.subCatName = subCatName;
+        this.categoryId = categoryId;
+        this.unit = unit;
+    }
+
     public SubCategory(int subCatId, String subCatName, int categoryId, String unit) {
         this.subCatId = subCatId;
         this.subCatName = subCatName;
