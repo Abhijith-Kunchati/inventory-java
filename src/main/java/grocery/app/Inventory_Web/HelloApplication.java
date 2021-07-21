@@ -1,4 +1,4 @@
-package com.example.Inventory_Web;
+package grocery.app.Inventory_Web;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
